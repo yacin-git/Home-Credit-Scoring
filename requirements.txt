@@ -1,0 +1,4 @@
+shap==0.39.0
+pandas==1.0.1
+streamlit==0.85.0
+joblib==0.14.1
