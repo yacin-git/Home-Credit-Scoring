@@ -3,6 +3,7 @@ import pandas as pd
 import joblib
 import shap
 import numpy as np
+import xgboost as xgb
 # import plotly_express as px
 
 #Affichage des titres du Dashboard
@@ -112,7 +113,9 @@ shap.initjs()
 explainer = shap.TreeExplainer(XGBoost_model)
 explainer_base_value = round(explainer.expected_value[0],3)
 st.write(df_shap.shape)
-shap_values = explainer.shap_values(df_shap)
+shap_values = explainer.shap_values(xgb.DMatrix(df_shap))
+
+
 # explainer = shap.TreeExplainer(XGBoost_model)
 
 # #On recupère les valeurs du client en fonction de l'ID selectionné
