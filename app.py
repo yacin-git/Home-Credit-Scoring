@@ -26,7 +26,7 @@ def load_model(file_name):
 XGBoost_model = load_model("best_model_XGBoost_pickle.pkl")
 
 # Chargement des données SHAP
-@st.cache(hash_funcs={'xgboost.sklearn.XGBClassifier': id})
+# @st.cache(hash_funcs={'xgboost.sklearn.XGBClassifier': id})
 def load_shap(df, model):
     df_shap = df.iloc[:,1:-2]
     shap.initjs()
@@ -106,7 +106,8 @@ st.write("Statut du client :", target)
 
 
 #Préparation de la visualitation SHAP
-# explainer_base_value, shap_values = load_shap(df, XGBoost_model)
+st.write(df.iloc[:,1:-2].shape)
+explainer_base_value, shap_values = load_shap(df, XGBoost_model)
 # explainer = shap.TreeExplainer(XGBoost_model)
 
 # #On recupère les valeurs du client en fonction de l'ID selectionné
@@ -125,7 +126,6 @@ st.write("Statut du client :", target)
 # st.pyplot(fig1)
 
 
-st.write(df.iloc[:,1:-2].shape)
 # df_customer_shap, index_customer, shap_values_customer = parameters_waterfall(id_customer)
 # fig1 = shap.waterfall_plot(shap.Explanation(values=shap_values_customer,
 #                                      base_values=explainer_base_value,
