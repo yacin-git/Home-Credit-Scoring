@@ -14,7 +14,7 @@ st.write("Visualisez et comparer les scores de vos clients !")
 def load_data(file_name):
     data = joblib.load(file_name)
     return data
-df = load_data("data_customers_test.pkl")
+df = load_data("data_customers.pkl")
 
 
 # Chargement du modèle
@@ -34,6 +34,13 @@ def load_shap(df, model):
     explainer_base_value = round(explainer.expected_value[0],3)
     shap_values = explainer.shap_values(df_shap)
     return explainer_base_value, shap_values
+
+@st.cache
+def parameters_waterfall(id_customer):
+    df_customer_shap = df[df['SK_ID_CURR'] == id_customer].iloc[0,1:-2]
+    index_customer = df[df['SK_ID_CURR'] == id_customer].iloc[:,1:-2].index
+    shap_values_customer = shap_values[index_customer][0]
+    return df_customer_shap, index_customer, shap_values_customer
 
 
 #Mise en place des filtres
@@ -102,12 +109,23 @@ st.write("Statut du client :", target)
 explainer_base_value, shap_values = load_shap(df, XGBoost_model)
 # explainer = shap.TreeExplainer(XGBoost_model)
 
-#On recupère les valeurs du client en fonction de l'ID selectionné
-df_customer_shap = df[df['SK_ID_CURR'] == id_customer].iloc[0,1:-2]
-index_customer = df[df['SK_ID_CURR'] == id_customer].iloc[:,1:-2].index
-shap_values_customer = shap_values[index_customer][0]
+# #On recupère les valeurs du client en fonction de l'ID selectionné
+# df_customer_shap = df[df['SK_ID_CURR'] == id_customer].iloc[0,1:-2]
+# index_customer = df[df['SK_ID_CURR'] == id_customer].iloc[:,1:-2].index
+# shap_values_customer = shap_values[index_customer][0]
+    
 
-#On trace le premier graph décrivant le client unique
+# #On trace le premier graph décrivant le client unique
+# fig1 = shap.waterfall_plot(shap.Explanation(values=shap_values_customer,
+#                                      base_values=explainer_base_value,
+#                                      data=df_customer_shap,
+#                                      feature_names=df.columns.tolist()),
+#                                      max_display=10)
+# st.set_option('deprecation.showPyplotGlobalUse', False)
+# st.pyplot(fig1)
+
+
+df_customer_shap, index_customer, shap_values_customer = parameters_waterfall(id_customer)
 fig1 = shap.waterfall_plot(shap.Explanation(values=shap_values_customer,
                                      base_values=explainer_base_value,
                                      data=df_customer_shap,
