@@ -106,13 +106,14 @@ st.write("Statut du client :", target)
 
 
 #Préparation de la visualitation SHAP
-# explainer_base_value, shap_values = load_shap(df, XGBoost_model)
-df_shap = df.iloc[:,1:-2]
-shap.initjs()
-explainer = shap.TreeExplainer(XGBoost_model)
-explainer_base_value = round(explainer.expected_value[0],3)
-st.write(df_shap.shape)
-shap_values = explainer.shap_values(df_shap, y=df.iloc[:,-1].values)
+explainer_base_value, shap_values = load_shap(df, XGBoost_model)
+
+# df_shap = df.iloc[:,1:-2]
+# shap.initjs()
+# explainer = shap.TreeExplainer(XGBoost_model)
+# explainer_base_value = round(explainer.expected_value[0],3)
+# st.write(df_shap.shape)
+# shap_values = explainer.shap_values(df_shap, y=df.iloc[:,-1].values)
 
 
 # explainer = shap.TreeExplainer(XGBoost_model)
