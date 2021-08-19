@@ -135,10 +135,10 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 st.pyplot(fig1)
 
 #On trace le second graph décrivant le sous groupe similaire au client
-checkbox_val = st.checkbox("Afficher la comparaison des " + str(count_customers) + " clients")
-if checkbox_val:
-    index_group = df_group.index
-    shap_values_group = shap_values[index_group]
-    fig2 = shap.summary_plot(shap_values_group, df.iloc[index_group,1:-2])
-    st.pyplot(fig2)
+# checkbox_val = st.checkbox("Afficher la comparaison des " + str(count_customers) + " clients")
+# if checkbox_val:
+#     index_group = df_group.index
+#     shap_values_group = shap_values[index_group]
+#     fig2 = shap.summary_plot(shap_values_group, df.iloc[index_group,1:-2])
+#     st.pyplot(fig2)
 
