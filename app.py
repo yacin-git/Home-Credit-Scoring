@@ -106,7 +106,7 @@ st.write("Statut du client :", target)
 
 
 #Préparation de la visualitation SHAP
-explainer_base_value, shap_values = load_shap(df, XGBoost_model)
+# explainer_base_value, shap_values = load_shap(df, XGBoost_model)
 # explainer = shap.TreeExplainer(XGBoost_model)
 
 # #On recupère les valeurs du client en fonction de l'ID selectionné
