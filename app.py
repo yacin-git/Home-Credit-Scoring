@@ -125,7 +125,8 @@ explainer_base_value, shap_values = load_shap(df, XGBoost_model)
 # st.pyplot(fig1)
 
 
-df_customer_shap, index_customer, shap_values_customer = parameters_waterfall(id_customer)
+st.write(df.iloc[:,1:-2].shape)
+# df_customer_shap, index_customer, shap_values_customer = parameters_waterfall(id_customer)
 # fig1 = shap.waterfall_plot(shap.Explanation(values=shap_values_customer,
 #                                      base_values=explainer_base_value,
 #                                      data=df_customer_shap,
