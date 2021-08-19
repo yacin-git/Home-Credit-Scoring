@@ -126,13 +126,13 @@ explainer_base_value, shap_values = load_shap(df, XGBoost_model)
 
 
 df_customer_shap, index_customer, shap_values_customer = parameters_waterfall(id_customer)
-fig1 = shap.waterfall_plot(shap.Explanation(values=shap_values_customer,
-                                     base_values=explainer_base_value,
-                                     data=df_customer_shap,
-                                     feature_names=df.columns.tolist()),
-                                     max_display=10)
-st.set_option('deprecation.showPyplotGlobalUse', False)
-st.pyplot(fig1)
+# fig1 = shap.waterfall_plot(shap.Explanation(values=shap_values_customer,
+#                                      base_values=explainer_base_value,
+#                                      data=df_customer_shap,
+#                                      feature_names=df.columns.tolist()),
+#                                      max_display=10)
+# st.set_option('deprecation.showPyplotGlobalUse', False)
+# st.pyplot(fig1)
 
 #On trace le second graph décrivant le sous groupe similaire au client
 # checkbox_val = st.checkbox("Afficher la comparaison des " + str(count_customers) + " clients")
