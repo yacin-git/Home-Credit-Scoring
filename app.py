@@ -103,6 +103,12 @@ st.write("Revenu total :", amt_income_total)
 st.write("Probabilité de défaut :", score)
 st.write("Statut du client :", target)
 
+if target == "Eligible":
+    st.write("[Voir les offres de crédits adaptées à ce client](https://homecredit.ph/all-about-loans/terms-and-conditions/)")
+else:
+    st.write("[Proposer des alternatives à ce client ?](https://homecredit.ph/tips-stories/sali-na-sa-loan-in-a-million-raffle-promo/)")
+    
+
 
 #Préparation de la visualitation SHAP
 explainer_base_value, shap_values = load_shap(df, XGBoost_model)
