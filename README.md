@@ -19,4 +19,4 @@ Doing so will ensure that clients capable of repayment are not rejected and that
 ## Dashboard
 Click on the link to access to the final Dashboard : [Go to the Dashboard](https://share.streamlit.io/yacin-git/home-credit-scoring/main/app.py)
 
-<a href="https://ibb.co/Rcw6Ck1"><img src="https://i.ibb.co/pdFK3Bg/Capture.jpg" alt="Go to the Dashboard" border="0"></a>
+<a href="https://share.streamlit.io/yacin-git/home-credit-scoring/main/app.py"><img src="https://i.ibb.co/pdFK3Bg/Capture.jpg" alt="Go to the Dashboard" border="0"></a>
